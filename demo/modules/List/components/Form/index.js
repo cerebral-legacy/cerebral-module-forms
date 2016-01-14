@@ -28,8 +28,8 @@ class Form extends React.Component {
   renderItem(item, index) {
     const {form, signals} = this.props;
     const ItemStyle = {
-
-    }
+      borderBottom: '1px solid #333'
+    };
     return (
       <div style={ItemStyle} key={index}>
         <h5>Name (required)</h5>
