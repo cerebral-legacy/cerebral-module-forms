@@ -20,7 +20,8 @@ module.exports = function (options) {
       fieldAdded: require('./signals/fieldAdded.js'),
       fieldRemoved: require('./signals/fieldRemoved.js'),
       formAdded: require('./signals/formAdded.js'),
-      formRemoved: require('./signals/formRemoved.js')
+      formRemoved: require('./signals/formRemoved.js'),
+      reset: require('./signals/reset.js')
     });
 
     module.signalsSync({

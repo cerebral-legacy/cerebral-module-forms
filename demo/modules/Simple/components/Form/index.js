@@ -64,6 +64,11 @@ class Form extends React.Component {
           signals.simple.formSubmitted();
         }}>Click to see JSON</button>
 
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.reset({ formPath: ['simple'] })
+        }}>Reset</button>
+
       </form>
     );
   }

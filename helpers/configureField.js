@@ -11,12 +11,14 @@ function configureField(formData, field) {
 
   var isValue = field.isValue || ['isValue'];
   var value = field.value;
+  var defaultValue = field.defaultValue || value;
   var validations = field.validations || null;
   var errorMessages = field.errorMessages || [];
   var hasValue = hasValueHelper(formData, value, isValue);
   var validationResult = validate(formData, value, validations);
 
   field.value = value;
+  field.defaultValue = defaultValue;
   field.validations = validations;
   field.isValid = validationResult.isValid;
   field.errorMessages = errorMessages
