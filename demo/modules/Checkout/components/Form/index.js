@@ -172,6 +172,9 @@ class Checkout extends React.Component {
               <button className={cx('pure-button')}
                       onClick={(event) => {
                         event.preventDefault();
+                        signals.forms.reset({
+                          formPath: ['checkout']
+                        })
                       }}>
                 Reset
               </button>
