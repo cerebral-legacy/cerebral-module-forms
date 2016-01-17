@@ -11,9 +11,21 @@ module.exports = React.createClass({
   },
   onChange: function (event) {
     var moduleName = this.modules['cerebral-module-forms'].name;
+    var value;
+    if (event.target.multiple) {
+      value = [].reduce.call(event.target.options, function (value, option) {
+        if (option.selected) {
+          value.push(option.value);
+        }
+
+        return value;
+      }, []);
+    } else {
+      value = event.target.value;
+    }
     this.signals[moduleName].fieldChanged({
       field: this.props.field,
-      value: event.target.value
+      value: value
     })
   },
   render: function () {
