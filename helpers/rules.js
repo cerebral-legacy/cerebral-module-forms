@@ -12,7 +12,7 @@ var matchRegexp = function (value, regexp) {
 
 var validations = {
   isValue: function (value) {
-    return value !== undefined && value !== '' && value !== null && value !== false;
+    return value !== undefined && value !== '' && value !== null && value !== false && (!Array.isArray(value) || !!value.length);
   },
   isExisty: function (value) {
     return isExisty(value);
