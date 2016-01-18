@@ -22,7 +22,7 @@ module.exports = function (options) {
       formAdded: require('./signals/formAdded.js'),
       formRemoved: require('./signals/formRemoved.js'),
       fieldChanged: {chain: require('./signals/fieldChanged.js'), sync: true},
-      reset: require('./signals/reset.js')
+      formValidated: require('./signals/formValidated.js')
     });
   };
 };

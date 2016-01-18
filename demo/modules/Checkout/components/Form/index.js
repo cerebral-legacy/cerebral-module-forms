@@ -178,6 +178,16 @@ class Checkout extends React.Component {
                       }}>
                 Reset
               </button>
+
+              <button className={cx('pure-button')}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        signals.forms.formValidated({
+                          formPath: ['checkout']
+                        });
+                      }}>
+                Validate
+              </button>
             </div>
 
           </form>

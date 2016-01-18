@@ -50,6 +50,12 @@ class Form extends React.Component {
             e.preventDefault();
             signals.forms.reset({ formPath: ['async'] })
         }}>Reset</button>
+
+        <button disabled={isValidating} onClick={(e) => {
+            e.preventDefault();
+            signals.forms.formValidated({ formPath: ['async'] })
+        }}>Validate</button>
+
       </form>
     );
   }
