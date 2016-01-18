@@ -11,8 +11,11 @@ module.exports = function(Component) {
       };
     },
     onChange: function (event) {
-      var moduleName = this.modules['cerebral-module-forms'].name;
+      if (this.props.onChange) {
+        this.props.onChange(event);
+      }
 
+      var moduleName = this.modules['cerebral-module-forms'].name;
       var value;
       if (event.target.multiple) {
         value = [].reduce.call(event.target.options, function (value, option) {
@@ -33,8 +36,13 @@ module.exports = function(Component) {
         value: value,
         preventValidation: this.props.validate === false
       });
+
     },
     onBlur: function (event) {
+      if (this.props.onChange) {
+        this.props.onChange(event);
+      }
+
       var moduleName = this.modules['cerebral-module-forms'].name;
       this.signals[moduleName].fieldChanged({
         field: this.props.field,
