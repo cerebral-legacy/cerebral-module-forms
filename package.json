@@ -48,7 +48,8 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0"
+    "webpack-hot-middleware": "^2.2.0",
+    "classnames": "^2.2.3"
   },
   "dependencies": {
     "cerebral-url-scheme-compiler": "^0.3.7",
