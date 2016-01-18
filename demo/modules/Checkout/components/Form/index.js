@@ -62,6 +62,11 @@ class Checkout extends React.Component {
                      label='Verify Email'
                      placeholder='john@example.org' />
 
+              <Input field={['checkout', 'customer' ,'email3']}
+                     type='text'
+                     label='Verify Email, again...'
+                     placeholder='john@example.org' />
+
               <Select field={['checkout', 'customer' ,'country']}
                       type='text'
                       label='Country' />
