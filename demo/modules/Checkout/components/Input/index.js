@@ -1,13 +1,13 @@
 import React from 'react';
+import CerebralForm from 'cerebral-module-forms/react/HOC';
 import cx from 'classnames';
 
-function PureTextarea(props) {
+function PureInput(props) {
   const id = props.id || props.field.join('.');
   const {containerClassName,
-         textareaClassName,
+         inputClassName,
          label,
          errorMessage,
-         options,
          isRequired,
          isTouched,
          isValid,
@@ -21,7 +21,10 @@ function PureTextarea(props) {
   return (
     <div className={cx(containerClassName, containerClasses)}>
       <label htmlFor={id}>{label}</label>
-      <textarea {...otherProps} id={id} className={textareaClassName} />
+      <input {...otherProps}
+             id={id}
+             name={props.name || id}
+             className={inputClassName} />
       <aside className='pure-form-message'>
         {isTouched ? errorMessage : null}
       </aside>
@@ -29,9 +32,9 @@ function PureTextarea(props) {
   );
 }
 
-PureTextarea.defaultProps = {
+PureInput.defaultProps = {
   containerClassName: 'pure-u-1',
-  textareaClassName: 'pure-u-1'
+  inputClassName: 'pure-u-1'
 };
 
-export default PureTextarea;
+export default CerebralForm(PureInput);
