@@ -20,9 +20,21 @@ export default (options = {}) => {
           validations: [{
             isEmail: true
           }],
-          errorMessages: ['Please enter a valid email address']
+          errorMessages: ['Please enter a valid email address'],
+          dependents: [
+            ['..', 'email2'],
+            ['checkout', 'customer', 'email3']
+            //['.', '..', 'email2'] // Also works
+          ]
         },
         email2: {
+          value: '',
+          isRequired: true,
+          validations: ['equalsField:"email"', 'isEmail'],
+          errorMessages: ['Please enter the same email address as above',
+                          'Please enter a valid email address']
+        },
+        email3: {
           value: '',
           isRequired: true,
           validations: ['equalsField:"email"', 'isEmail'],
