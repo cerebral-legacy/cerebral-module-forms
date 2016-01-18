@@ -12,8 +12,7 @@ function validate(arg) {
   var validationResult = validateHelper(form, field.value, field.validations);
   state.merge(path.concat(key), {
     isValid: validationResult.isValid,
-    errorMessage: validationResult.isValid ? null : field.errorMessages[validationResult.failedRuleIndex],
-    isTouched: true
+    errorMessage: validationResult.isValid ? null : field.errorMessages[validationResult.failedRuleIndex]
   });
 }
 

@@ -31,14 +31,15 @@ module.exports = function(Component) {
       this.signals[moduleName].fieldChanged({
         field: this.props.field,
         value: value,
-        preventValidation: this.props.blurValidation || this.props.validate === false
+        preventValidation: this.props.validate === false
       });
     },
     onBlur: function (event) {
       var moduleName = this.modules['cerebral-module-forms'].name;
       this.signals[moduleName].fieldChanged({
         field: this.props.field,
-        value: event.target.value
+        value: event.target.value,
+        touched: true
       });
     },
     render: function () {
@@ -56,9 +57,7 @@ module.exports = function(Component) {
       }, props);
 
       props.onChange = this.onChange;
-      if (props.blurValidation) {
-        props.onBlur = this.onBlur;
-      }
+      props.onBlur = this.onBlur;
       return React.createElement(Component, props);
     }
   });
