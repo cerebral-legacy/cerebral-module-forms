@@ -28,6 +28,14 @@ module.exports = React.createClass({
       value: value
     })
   },
+  onBlur: function (event) {
+    var moduleName = this.modules['cerebral-module-forms'].name;
+    this.signals[moduleName].fieldChanged({
+      field: this.props.field,
+      value: event.target.value,
+      touched: true
+    })
+  },
   render: function () {
     var passedProps = this.props;
     var props = Object.keys(passedProps).reduce(function (props, key) {
@@ -37,6 +45,7 @@ module.exports = React.createClass({
 
     props.value = this.state.value;
     props.onChange = this.onChange;
+    props.onBlur = this.onBlur;
     return React.createElement('select', props, this.state.options.map(function (option, index) {
       return React.createElement('option', {
         key: index
