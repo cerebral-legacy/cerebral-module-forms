@@ -1,10 +1,11 @@
 import React from 'react';
+import CerebralForm from 'cerebral-module-forms/react/HOC';
 import cx from 'classnames';
 
-function PureSelect(props) {
+function PureCheckbox(props) {
   const id = props.id || props.field.join('.');
   const {containerClassName,
-         selectClassName,
+         checkboxClassName,
          label,
          errorMessage,
          options,
@@ -20,27 +21,24 @@ function PureSelect(props) {
 
   return (
     <div className={cx(containerClassName, containerClasses)}>
-      <label htmlFor={id}>{label}</label>
-      <select {...otherProps}
-              id={id}
-              name={props.name || id}
-              className={selectClassName}>
-        {options.map((option, index) =>
-          <option key={index} value={option.value || option.text}>
-            {option.text}
-          </option>
-        )}
-      </select>
       <aside className='pure-form-message'>
         {isTouched ? errorMessage : null}
       </aside>
+      <label htmlFor={id} className='pure-checkbox'>
+        <input {...otherProps}
+              type='checkbox'
+              id={id}
+              name={props.name || id}
+              checked={props.value}
+              className={checkboxClassName} />
+        <span>{props.label}</span>
+      </label>
     </div>
   );
 }
 
-PureSelect.defaultProps = {
+PureCheckbox.defaultProps = {
   containerClassName: 'pure-u-1',
-  selectClassName: 'pure-u-1'
 };
 
-export default PureSelect;
+export default CerebralForm(PureCheckbox);

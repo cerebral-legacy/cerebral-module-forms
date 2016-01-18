@@ -1,10 +1,11 @@
 import React from 'react';
+import CerebralForm from 'cerebral-module-forms/react/HOC';
 import cx from 'classnames';
 
-function PureCheckbox(props) {
+function PureTextarea(props) {
   const id = props.id || props.field.join('.');
   const {containerClassName,
-         checkboxClassName,
+         textareaClassName,
          label,
          errorMessage,
          options,
@@ -20,24 +21,18 @@ function PureCheckbox(props) {
 
   return (
     <div className={cx(containerClassName, containerClasses)}>
+      <label htmlFor={id}>{label}</label>
+      <textarea {...otherProps} id={id} className={textareaClassName} />
       <aside className='pure-form-message'>
         {isTouched ? errorMessage : null}
       </aside>
-      <label htmlFor={id} className='pure-checkbox'>
-        <input {...otherProps}
-              type='checkbox'
-              id={id}
-              name={props.name || id}
-              checked={props.value}
-              className={checkboxClassName} />
-        <span>{props.label}</span>
-      </label>
     </div>
   );
 }
 
-PureCheckbox.defaultProps = {
+PureTextarea.defaultProps = {
   containerClassName: 'pure-u-1',
+  textareaClassName: 'pure-u-1'
 };
 
-export default PureCheckbox;
+export default CerebralForm(PureTextarea);

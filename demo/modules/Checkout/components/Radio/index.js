@@ -1,4 +1,5 @@
 import React from 'react';
+import CerebralForm from 'cerebral-module-forms/react/HOC';
 import cx from 'classnames';
 
 function PureRadio(props) {
@@ -45,4 +46,4 @@ PureRadio.defaultProps = {
   containerClassName: 'pure-u-1'
 };
 
-export default PureRadio;
+export default CerebralForm(PureRadio);

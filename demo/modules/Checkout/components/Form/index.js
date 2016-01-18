@@ -1,23 +1,16 @@
 import React from 'react';
 import { Decorator as Cerebral } from 'cerebral-view-react';
-import FormHOC from 'cerebral-module-forms/react/HOC';
 import isValidForm from 'cerebral-module-forms/helpers/isValidForm';
 
-import PureInput from '../../../PureUI/components/PureInput';
-import PureSelect from '../../../PureUI/components/PureSelect';
-import PureTextarea from '../../../PureUI/components/PureTextarea';
-import PureRadio from '../../../PureUI/components/PureRadio';
-import PureCheckbox from '../../../PureUI/components/PureCheckbox';
+import Input from '../Input';
+import Select from '../Select';
+import Textarea from '../Textarea';
+import Radio from '../Radio';
+import Checkbox from '../Checkbox';
 
 import classNames from 'classnames/bind'
 import styles from './styles.css';
 const cx = classNames.bind(styles);
-
-const Input = FormHOC(PureInput);
-const Select = FormHOC(PureSelect);
-const Textarea = FormHOC(PureTextarea);
-const Radio = FormHOC(PureRadio);
-const Checkbox = FormHOC(PureCheckbox);
 
 @Cerebral({
   form: ['checkout']
