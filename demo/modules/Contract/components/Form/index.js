@@ -43,6 +43,11 @@ class Form extends React.Component {
             signals.forms.reset({ formPath: ['contract'] })
         }}>Reset</button>
 
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.formValidated({ formPath: ['contract'] })
+        }}>Validate</button>
+
       </form>
     );
   }

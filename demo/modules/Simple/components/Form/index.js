@@ -69,6 +69,11 @@ class Form extends React.Component {
             signals.forms.reset({ formPath: ['simple'] })
         }}>Reset</button>
 
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.formValidated({ formPath: ['simple'] })
+        }}>Validate</button>
+
       </form>
     );
   }
