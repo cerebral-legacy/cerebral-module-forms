@@ -17,36 +17,28 @@ module.exports = function (form, value, validations) {
         return result;
       }
 
-      // Extract argument
-      var arg;
-      var rule = validation;
-      if (typeof rule === 'string') {
+      // Convert string to object form
+      if (typeof validation === 'string') {
+        var args = validation.split(/:(.+)?/)
 
-        if (rule.indexOf(':') >= 0) {
-          var args = rule.split(/:(.+)?/)
-          rule = args[0];
-          arg = args[1] ? JSON.parse(args[1]) : undefined;
-        }
-
-        return {
-          isValid: rules[rule](value, form, arg),
-          failedRuleIndex: index
-        }
-
-      } else {
-
-        return {
-          isValid: Object.keys(rule).reduce(function (isValid, key) {
-            if (!isValid) {
-              return false;
-            }
-            return rules[key](value, form, rule[key]);
-          }, true),
-          failedRuleIndex: index
-        }
-
+        validation = {};
+        validation[args[0]] = args[1] ? JSON.parse(args[1]) : undefined;
       }
 
+      return {
+        isValid: Object.keys(validation).reduce(function (isValid, key) {
+          if (!isValid) {
+            return false;
+          }
+
+          var rule = rules[key] || function() {
+            console.warn('Rule ' + key + ' is not found');
+          };
+
+          return rule(value, form, validation[key]);
+        }, true),
+        failedRuleIndex: index
+      }
     }, initialValidation);
   } else {
 

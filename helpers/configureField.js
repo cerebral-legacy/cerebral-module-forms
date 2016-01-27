@@ -10,6 +10,7 @@ function configureField(formData, field) {
   }
 
   var isValue = field.isValue || ['isValue'];
+  var isRequired = field.isRequired || false;
   var value = field.value;
   var defaultValue = field.defaultValue || value;
   var validations = field.validations || null;
@@ -20,10 +21,11 @@ function configureField(formData, field) {
   field.value = value;
   field.defaultValue = defaultValue;
   field.validations = validations;
-  field.isValid = validationResult.isValid;
+  field.isValid = (isRequired || hasValue) ? validationResult.isValid : true;
   field.errorMessages = errorMessages
   field.errorMessage = validationResult.isValid ? null : errorMessages[validationResult.failedRule];
   field.isValue = isValue;
+  field.isRequired = isRequired;
   field.hasValue = hasValue;
   field.isTouched = hasValue;
 
