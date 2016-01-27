@@ -1,6 +1,22 @@
 var React = require('react');
 var CerebralReact = require('cerebral-view-react');
 
+function parseValue(event) {
+  if (event.target.multiple) {
+    return [].reduce.call(event.target.options, function (value, option) {
+      if (option.selected) {
+        value.push(option.value);
+      }
+
+      return value;
+    }, []);
+  } else if (event.target.type === 'checkbox') {
+    return !!event.target.checked;
+  }
+
+  return event.target.value;
+}
+
 module.exports = function(Component) {
   return React.createClass({
     displayName: Component.name + 'FormContainer',
@@ -16,24 +32,9 @@ module.exports = function(Component) {
       }
 
       var moduleName = this.modules['cerebral-module-forms'].name;
-      var value;
-      if (event.target.multiple) {
-        value = [].reduce.call(event.target.options, function (value, option) {
-          if (option.selected) {
-            value.push(option.value);
-          }
-
-          return value;
-        }, []);
-      } else if (event.target.type === 'checkbox') {
-        value = event.target.checked;
-      } else {
-        value = event.target.value;
-      }
-
       this.signals[moduleName].fieldChanged({
         field: this.props.field,
-        value: value,
+        value: parseValue(event),
         preventValidation: this.props.validate === false
       });
 
@@ -46,7 +47,7 @@ module.exports = function(Component) {
       var moduleName = this.modules['cerebral-module-forms'].name;
       this.signals[moduleName].fieldChanged({
         field: this.props.field,
-        value: event.target.value,
+        value: parseValue(event),
         touched: true
       });
     },
