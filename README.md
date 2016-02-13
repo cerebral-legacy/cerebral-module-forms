@@ -10,7 +10,7 @@ Form handling for Cerebral
 ```js
 import Forms from 'cerebral-module-forms';
 
-controller.modules({
+controller.addModules({
   forms: Forms({
     rules: {
       myCustomRule(value, form, arg) {
@@ -30,7 +30,7 @@ import Form from 'cerebral-module-forms/Form';
 export default (options = {}) {
   return (module) => {
 
-    module.state(Form({
+    module.addState(Form({
       name: {
         value: ''
       }
@@ -49,7 +49,7 @@ import Form from 'cerebral-module-forms/Form';
 export default (options = {}) {
   return (module) => {
 
-    module.state({
+    module.addState({
       formA: Form({
         name: {
           value: ''
@@ -78,7 +78,7 @@ import Form from 'cerebral-module-forms/Form';
 export default (options = {}) {
   return (module) => {
 
-    module.state(Form({
+    module.addState(Form({
       name: {
         value: '',
         isRequired: true // Form is not valid if value is empty
@@ -123,7 +123,7 @@ import Form from 'cerebral-module-forms/Form';
 export default (options = {}) {
   return (module) => {
 
-    module.state(Form({
+    module.addState(Form({
       myCustomField: {
         value: [],
         isValue: ['minLength:3']

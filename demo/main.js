@@ -19,7 +19,7 @@ import AsyncForm from './modules/Async/components/Form';
 
 const controller = Controller(Model({}));
 
-controller.modules({
+controller.addModules({
   simple: Simple(),
   contract: Contract(),
   list: List(),
