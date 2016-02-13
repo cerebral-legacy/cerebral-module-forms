@@ -11,9 +11,29 @@ module.exports = React.createClass({
   },
   onChange: function (event) {
     var moduleName = this.modules['cerebral-module-forms'].name;
+    var value;
+    if (event.target.multiple) {
+      value = [].reduce.call(event.target.options, function (value, option) {
+        if (option.selected) {
+          value.push(option.value);
+        }
+
+        return value;
+      }, []);
+    } else {
+      value = event.target.value;
+    }
     this.signals[moduleName].fieldChanged({
       field: this.props.field,
-      value: event.target.value
+      value: value
+    })
+  },
+  onBlur: function (event) {
+    var moduleName = this.modules['cerebral-module-forms'].name;
+    this.signals[moduleName].fieldChanged({
+      field: this.props.field,
+      value: event.target.value,
+      touched: true
     })
   },
   render: function () {
@@ -25,6 +45,7 @@ module.exports = React.createClass({
 
     props.value = this.state.value;
     props.onChange = this.onChange;
+    props.onBlur = this.onBlur;
     return React.createElement('select', props, this.state.options.map(function (option, index) {
       return React.createElement('option', {
         key: index

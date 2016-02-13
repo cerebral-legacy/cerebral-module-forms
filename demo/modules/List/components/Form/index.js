@@ -73,6 +73,16 @@ class Form extends React.Component {
           signals.list.formSubmitted();
         }}>Click to see JSON</button>
 
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.reset({ formPath: ['list'] });
+        }}>Reset</button>
+
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.formValidated({ formPath: ['list'] });
+        }}>Validate</button>
+
       </form>
     );
   }

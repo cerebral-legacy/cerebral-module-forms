@@ -17,6 +17,9 @@ import ListForm from './modules/List/components/Form';
 import Async from './modules/Async';
 import AsyncForm from './modules/Async/components/Form';
 
+import Checkout from './modules/Checkout';
+import CheckoutForm from './modules/Checkout/components/Form';
+
 const controller = Controller(Model({}));
 
 controller.modules({
@@ -24,9 +27,12 @@ controller.modules({
   contract: Contract(),
   list: List(),
   async: Async(),
+  checkout: Checkout(),
 
   forms: Forms({
-    rules: {}
+    rules: {
+      isMonth: (value) => value >= 1 && value <= 12
+    }
   })
 });
 
@@ -35,7 +41,9 @@ const ExampleStyle = {
   verticalAlign: 'top',
   padding: 20,
   margin: 20,
-  border: '1px solid #333'
+  border: '1px solid #333',
+  backgroundColor: '#fafafa',
+  fontSize: '.9em'
 };
 
 ReactDOM.render((
@@ -55,6 +63,9 @@ ReactDOM.render((
     <div style={ExampleStyle}>
       <h1>Username Form (Custom Async)</h1>
       <AsyncForm/>
+    </div>
+    <div style={ExampleStyle}>
+      <CheckoutForm />
     </div>
   </Container>
 ), document.getElementById('root'));
