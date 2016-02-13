@@ -23,6 +23,5 @@ module.exports = function (options) {
       formRemoved: require('./signals/formRemoved.js'),
       fieldChanged: {chain: require('./signals/fieldChanged.js'), sync: true}
     });
-
   };
 };
