@@ -30,12 +30,15 @@ import Form from 'cerebral-module-forms/Form';
 export default (options = {}) {
   return (module) => {
 
-    module.addState(Form({
-      name: {
-        value: ''
-      }
-    }));
-
+    module.addState({
+      anyState: 'bar',
+      myForm: Form({
+        name: {
+          value: ''
+        }
+      })
+    });
+    
   };
 }
 ```
