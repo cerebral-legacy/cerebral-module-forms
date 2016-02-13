@@ -1,5 +1,5 @@
-function checkUsername({module, output}) {
-  const username = module.state.get(['username', 'value']);
+function checkUsername({state, output}) {
+  const username = state.get(['username', 'value']);
   fetch('/username', {method: 'POST', body: {username}})
     .then((response) => {
       return response.json().then((data) => ({data, status: response.status}));

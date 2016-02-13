@@ -5,7 +5,7 @@ import usernameInputBlurred from './signals/usernameInputBlurred';
 export default (options = {}) => {
   return (module, controller) => {
 
-    module.state(Form({
+    module.addState(Form({
       username: {
         value: '',
         isValidating: false,
@@ -13,7 +13,7 @@ export default (options = {}) => {
       }
     }));
 
-    module.signals({
+    module.addSignals({
       usernameInputBlurred,
       formSubmitted
     });

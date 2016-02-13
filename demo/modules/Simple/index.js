@@ -4,7 +4,7 @@ import formSubmitted from './signals/formSubmitted';
 export default (options = {}) => {
   return (module, controller) => {
 
-    module.state(Form({
+    module.addState(Form({
       name: {
         value: '',
         isRequired: true
@@ -27,7 +27,7 @@ export default (options = {}) => {
       })
     }));
 
-    module.signals({
+    module.addSignals({
       formSubmitted
     });
 

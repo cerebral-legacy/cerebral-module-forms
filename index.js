@@ -14,17 +14,14 @@ module.exports = function (options) {
 
     module.alias('cerebral-module-forms');
 
-    module.state({});
+    module.addState({});
 
-    module.signals({
+    module.addSignals({
       fieldAdded: require('./signals/fieldAdded.js'),
       fieldRemoved: require('./signals/fieldRemoved.js'),
       formAdded: require('./signals/formAdded.js'),
-      formRemoved: require('./signals/formRemoved.js')
-    });
-
-    module.signalsSync({
-      fieldChanged: require('./signals/fieldChanged.js')
+      formRemoved: require('./signals/formRemoved.js'),
+      fieldChanged: {chain: require('./signals/fieldChanged.js'), sync: true}
     });
 
   };
