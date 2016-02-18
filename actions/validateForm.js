@@ -29,7 +29,7 @@ function validate(arg) {
   var doValidation = function(path, form, key) {
     var field = form[key];
     var result = validateHelper(form, field.value, field.validations);
-    var isValid = result.isValud && !isRequired(field);
+    var isValid = result.isValid && !isRequired(field);
 
     state.merge(path, {
       isValid: isValid,
