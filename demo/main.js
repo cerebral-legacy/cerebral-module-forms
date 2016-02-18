@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Controller from 'cerebral';
 import Model from 'cerebral-model-baobab';
+import Devtools from 'cerebral-module-devtools';
 import {Container} from 'cerebral-view-react';
 import Forms from 'cerebral-module-forms';
 
@@ -23,6 +24,7 @@ import CheckoutForm from './modules/Checkout/components/Form';
 const controller = Controller(Model({}));
 
 controller.addModules({
+  devtools: Devtools(),
   simple: Simple(),
   contract: Contract(),
   list: List(),

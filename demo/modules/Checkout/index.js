@@ -4,7 +4,7 @@ import formSubmitted from './signals/formSubmitted';
 export default (options = {}) => {
   return (module, controller) => {
 
-    module.state(Form({
+    module.addState(Form({
       customer: Form({
         first: {
           value: '',
@@ -167,7 +167,7 @@ export default (options = {}) => {
       })
     }));
 
-    module.signals({
+    module.addSignals({
       formSubmitted
     });
   };
