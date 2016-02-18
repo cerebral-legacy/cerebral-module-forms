@@ -19,10 +19,11 @@ module.exports = function (options) {
     module.addSignals({
       fieldAdded: require('./signals/fieldAdded.js'),
       fieldRemoved: require('./signals/fieldRemoved.js'),
+      fieldChanged: {chain: require('./signals/fieldChanged.js'), sync: true},
       formAdded: require('./signals/formAdded.js'),
       formRemoved: require('./signals/formRemoved.js'),
-      fieldChanged: {chain: require('./signals/fieldChanged.js'), sync: true},
-      formValidated: require('./signals/formValidated.js')
+      formValidated: require('./signals/formValidated.js'),
+      reset: require('./signals/reset.js')
     });
   };
 };
