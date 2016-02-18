@@ -13,7 +13,7 @@ module.exports = function reset(arg) {
         newForm[key] = resetArray(form[key]);
       } else if ('value' in form[key]) {
         var newField = Object.keys(form[key]).reduce(function(newField, fKey) {
-          newField[key] = form[key][fKey];
+          newField[fKey] = form[key][fKey];
           return newField;
         }, {});
         newField.value = newField.defaultValue;
