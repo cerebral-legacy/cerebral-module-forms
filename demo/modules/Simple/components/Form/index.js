@@ -19,6 +19,11 @@ class Form extends React.Component {
             onChange={(e) => signals.forms.fieldChanged({
               field: ['simple', 'name'],
               value: e.target.value
+            })}
+            onBlur={(e) => signals.forms.fieldChanged({
+              field: ['simple', 'name'],
+              value: e.target.value,
+              touched: true
             })}/>
         </div>
 
@@ -29,6 +34,11 @@ class Form extends React.Component {
             onChange={(e) => signals.forms.fieldChanged({
               field: ['simple', 'email'],
               value: e.target.value
+            })}
+            onBlur={(e) => signals.forms.fieldChanged({
+              field: ['simple', 'email'],
+              value: e.target.value,
+              touched: true
             })}/>
           {form.email.isTouched ? form.email.errorMessage : null}
         </div>
@@ -42,6 +52,11 @@ class Form extends React.Component {
               onChange={(e) => signals.forms.fieldChanged({
                 field: ['simple', 'address', 'street'],
                 value: e.target.value
+              })}
+              onBlur={(e) => signals.forms.fieldChanged({
+                field: ['simple', 'address', 'street'],
+                value: e.target.value,
+                touched: true
               })}/>
             {form.address.street.isTouched ? form.address.street.errorMessage : null}
           </div>
@@ -52,6 +67,11 @@ class Form extends React.Component {
               onChange={(e) => signals.forms.fieldChanged({
                 field: ['simple', 'address', 'postalCode'],
                 value: e.target.value
+              })}
+              onBlur={(e) => signals.forms.fieldChanged({
+                field: ['simple', 'address', 'postalCode'],
+                value: e.target.value,
+                touched: true
               })}/>
             {form.address.postalCode.isTouched ? form.address.postalCode.errorMessage : null}
           </div>
@@ -63,6 +83,16 @@ class Form extends React.Component {
           e.preventDefault();
           signals.simple.formSubmitted();
         }}>Click to see JSON</button>
+
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.reset({ formPath: ['simple'] })
+        }}>Reset</button>
+
+        <button onClick={(e) => {
+            e.preventDefault();
+            signals.forms.formValidated({ formPath: ['simple'] })
+        }}>Validate</button>
 
       </form>
     );

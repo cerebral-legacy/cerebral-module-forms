@@ -12,7 +12,16 @@ module.exports = React.createClass({
     var moduleName = this.modules['cerebral-module-forms'].name;
     this.signals[moduleName].fieldChanged({
       field: this.props.field,
-      value: event.target.checked
+      value: event.target.checked,
+
+    })
+  },
+  onBlur: function (event) {
+    var moduleName = this.modules['cerebral-module-forms'].name;
+    this.signals[moduleName].fieldChanged({
+      field: this.props.field,
+      value: event.target.checked,
+      touched: true
     })
   },
   render: function () {
@@ -24,6 +33,7 @@ module.exports = React.createClass({
 
     props.checked = this.state.checked;
     props.onChange = this.onChange;
+    props.onBlur = this.onBlur;
     props.type = 'checkbox';
     return React.createElement('input', props);
   }
