@@ -25,7 +25,7 @@ function validate(arg) {
   	
     field.dependents.forEach(function(dependent) {
       var path = joinPath(input.field, dependent);
-      if( path ){
+      if( path ) {
         var key = path.pop();
         var form = state.get(path);
         doValidation(path, form, key);
