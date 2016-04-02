@@ -69,7 +69,7 @@ var validations = {
     return !isExisty(value) || isEmpty(value) || value == eql;
   },
   equalsField: function (value, form, field) {
-    return value == form[field].value;
+    return value === form[field].value;
   },
   maxLength: function (value, form, length) {
     return !isExisty(value) || value.length <= length;

@@ -1,5 +1,5 @@
-function setInvalidUsername({input, module}) {
-  module.state.merge(['username'], {
+function setInvalidUsername({state,input}) {
+  state.merge('async.username', {
     isValid: false,
     isValidating: false,
     isValidated: true,
