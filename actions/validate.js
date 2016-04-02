@@ -22,12 +22,14 @@ function validate(arg) {
   doValidation(path, form, key);
 
   if (Array.isArray(field.dependents) && field.dependents.length) {
+  	
     field.dependents.forEach(function(dependent) {
       var path = joinPath(input.field, dependent);
-      var key = path.pop();
-      var form = state.get(path);
-
-      doValidation(path, form, key);
+      if( path ){
+        var key = path.pop();
+        var form = state.get(path);
+        doValidation(path, form, key);
+      }
     });
   }
 }
