@@ -22,7 +22,6 @@ function validate(arg) {
   doValidation(path, form, key);
 
   if (Array.isArray(field.dependents) && field.dependents.length) {
-  	
     field.dependents.forEach(function(dependent) {
       var path = joinPath(input.field, dependent);
       if( path ) {
