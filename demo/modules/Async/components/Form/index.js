@@ -21,6 +21,8 @@ class Form extends React.Component {
       return 'Not valid username!';
     }
   }
+  
+  
   render() {
     const {form, signals} = this.props;
     const isValid = isValidForm(form);

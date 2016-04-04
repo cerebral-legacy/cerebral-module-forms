@@ -13,4 +13,5 @@ function checkUsername({state, output}) {
     });
 }
 
+checkUsername.async = true;
 export default checkUsername;
