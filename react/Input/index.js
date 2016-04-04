@@ -23,6 +23,9 @@ module.exports = React.createClass({
       value: event.target.value,
       touched: true
     });
+    if(this.props.onBlur) {
+      this.props.onBlur();
+    }
   },
   render: function () {
     var passedProps = this.props;
