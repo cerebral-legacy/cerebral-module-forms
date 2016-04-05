@@ -1,5 +1,5 @@
-function setValidUsername({module}) {
-  module.state.merge(['username'], {
+function setValidUsername({state}) {
+  state.merge('async.username', {
     isValid: true,
     isValidating: false,
     isValidated: true
