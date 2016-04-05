@@ -23,6 +23,10 @@ function validate(arg) {
 
   if (Array.isArray(field.dependents) && field.dependents.length) {
     field.dependents.forEach(function(dependent) {
+      if (! Array.isArray(dependent) || !dependent.length) {
+   	    console.warn('cerebral-module-forms: dependent path expected to be Array. Check out dependents provided for ' + input.field + '.');
+   	    return;
+      }
       var path = joinPath(input.field, dependent);
       var key = path.pop();
       var form = state.get(path);
