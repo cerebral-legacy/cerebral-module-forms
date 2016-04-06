@@ -7,4 +7,4 @@ module.exports = [
     yes: [require('../actions/validate.js')],
     no: []
   }
-];
+]

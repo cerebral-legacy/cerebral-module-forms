@@ -1,22 +1,18 @@
-var getCompiler = require('cerebral-url-scheme-compiler/get');
-var setCompiler = require('cerebral-url-scheme-compiler/set');
-var toJSON = require('./helpers/toJSON');
+var getCompiler = require('cerebral-url-scheme-compiler/get')
+var setCompiler = require('cerebral-url-scheme-compiler/set')
+var toJSON = require('./helpers/toJSON')
 
-function copyFormFactory(formPath, outputPath) {
+function copyFormFactory (formPath, outputPath) {
+  var getValue = getCompiler(formPath)
+  var setValue = setCompiler(outputPath)
 
-  var getValue = getCompiler(formPath);
-  var setValue = setCompiler(outputPath);
-
-  function copyForm(args) {
-
-    var form = getValue(args);
-    var fields = toJSON(form);
-    setValue(args, fields);
-
+  function copyForm (args) {
+    var form = getValue(args)
+    var fields = toJSON(form)
+    setValue(args, fields)
   }
 
-  return copyForm;
-
+  return copyForm
 }
 
-module.exports = copyFormFactory;
+module.exports = copyFormFactory

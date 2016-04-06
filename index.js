@@ -1,20 +1,18 @@
-var rules = require('./helpers/rules.js');
+var rules = require('./helpers/rules.js')
 
 module.exports = function (options) {
-
-  options = options || {};
+  options = options || {}
 
   if (options.rules) {
     Object.keys(options.rules).forEach(function (key) {
-      rules[key] = options.rules[key];
-    });
+      rules[key] = options.rules[key]
+    })
   }
 
   return function (module, controller) {
+    module.alias('cerebral-module-forms')
 
-    module.alias('cerebral-module-forms');
-
-    module.addState({});
+    module.addState({})
 
     module.addSignals({
       fieldAdded: require('./signals/fieldAdded.js'),
@@ -24,6 +22,6 @@ module.exports = function (options) {
       formRemoved: require('./signals/formRemoved.js'),
       formValidated: require('./signals/formValidated.js'),
       reset: require('./signals/reset.js')
-    });
-  };
-};
+    })
+  }
+}

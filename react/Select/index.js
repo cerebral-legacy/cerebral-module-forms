@@ -1,5 +1,5 @@
-var React = require('react');
-var CerebralReact = require('cerebral-view-react');
+var React = require('react')
+var CerebralReact = require('cerebral-view-react')
 
 module.exports = React.createClass({
   mixins: [CerebralReact.Mixin],
@@ -7,21 +7,21 @@ module.exports = React.createClass({
     return {
       value: this.props.field.concat('value'),
       options: this.props.field.concat('options')
-    };
+    }
   },
   onChange: function (event) {
-    var moduleName = this.modules['cerebral-module-forms'].name;
-    var value;
+    var moduleName = this.modules['cerebral-module-forms'].name
+    var value
     if (event.target.multiple) {
       value = [].reduce.call(event.target.options, function (value, option) {
         if (option.selected) {
-          value.push(option.value);
+          value.push(option.value)
         }
 
-        return value;
-      }, []);
+        return value
+      }, [])
     } else {
-      value = event.target.value;
+      value = event.target.value
     }
     this.signals[moduleName].fieldChanged({
       field: this.props.field,
@@ -29,7 +29,7 @@ module.exports = React.createClass({
     })
   },
   onBlur: function (event) {
-    var moduleName = this.modules['cerebral-module-forms'].name;
+    var moduleName = this.modules['cerebral-module-forms'].name
     this.signals[moduleName].fieldChanged({
       field: this.props.field,
       value: event.target.value,
@@ -37,19 +37,19 @@ module.exports = React.createClass({
     })
   },
   render: function () {
-    var passedProps = this.props;
+    var passedProps = this.props
     var props = Object.keys(passedProps).reduce(function (props, key) {
-      props[key] = passedProps[key];
-      return props;
-    }, {});
+      props[key] = passedProps[key]
+      return props
+    }, {})
 
-    props.value = this.state.value;
-    props.onChange = this.onChange;
-    props.onBlur = this.onBlur;
+    props.value = this.state.value
+    props.onChange = this.onChange
+    props.onBlur = this.onBlur
     return React.createElement('select', props, this.state.options.map(function (option, index) {
       return React.createElement('option', {
         key: index
-      }, option.text);
-    }));
+      }, option.text)
+    }))
   }
-});
+})

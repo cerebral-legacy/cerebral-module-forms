@@ -1,14 +1,14 @@
-var isValid = require('./helpers/isValid');
+var isValid = require('./helpers/isValid')
 
-function isValidComputed(path) {
-  path = typeof path === 'string' ? path.split('.') : path;
+function isValidComputed (path) {
+  path = typeof path === 'string' ? path.split('.') : path
 
-  function computed(get) {
-    return isValid(get(path));
+  function computed (get) {
+    return isValid(get(path))
   }
-  computed.computedRef = JSON.stringify(path);
+  computed.computedRef = JSON.stringify(path)
 
-  return computed;
+  return computed
 }
 
-module.exports = isValidComputed;
+module.exports = isValidComputed
