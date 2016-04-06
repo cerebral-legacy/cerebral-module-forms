@@ -1,23 +1,6 @@
 {
-  "name": "cerebral-module-forms",
-  "version": "0.2.0",
-  "description": "A forms handler for Cerebral",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cerebral/cerebral-module-forms.git"
-  },
-  "keywords": [
-    "cerebral",
-    "forms",
-    "validation"
-  ],
-  "author": "Christian Alfoni",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cerebral/cerebral-module-forms/issues"
-  },
-  "homepage": "https://github.com/cerebral/cerebral-module-forms",
+  "name": "demo",
+  "version": "0.1.0",
   "scripts": {
     "start": "node server"
   },
@@ -51,9 +34,5 @@
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.2.0"
-  },
-  "dependencies": {
-    "cerebral-url-scheme-compiler": "^0.4.1",
-    "classnames": "^2.2.3"
   }
 }

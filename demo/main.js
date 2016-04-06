@@ -4,7 +4,7 @@ import Controller from 'cerebral';
 import Model from 'cerebral-model-baobab';
 import Devtools from 'cerebral-module-devtools';
 import {Container} from 'cerebral-view-react';
-import Forms from '../';
+import Forms from 'cerebral-module-forms';
 
 import Simple from './modules/Simple';
 import SimpleForm from './modules/Simple/components/Form';

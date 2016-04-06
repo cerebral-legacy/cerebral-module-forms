@@ -32,13 +32,14 @@ module.exports = {
   resolve: {
     root: path.join(__dirname, 'node_modules'),
     alias: {
-      'cerebral-module-forms': path.join(__dirname)
+      'cerebral-module-forms': path.resolve(__dirname, '..')
     }
   },
   module: {
     loaders: [{
       test: /\.js?$/,
       exclude: /node_modules/,
+      include: __dirname,
       loader: 'babel',
       query: {
         "presets": ["react", "es2015", "stage-0"],
