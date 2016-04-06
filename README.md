@@ -2,9 +2,10 @@
 Form handling for Cerebral
 
 ### Try the demo
-1. `npm install`
-2. `npm start`
-3. Go to `localhost:3000`
+1. `cd demo`
+2. `npm install`
+3. `npm start`
+4. Go to `localhost:3000`
 
 ### Register the module
 ```js
