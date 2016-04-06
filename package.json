@@ -17,12 +17,20 @@
   "bugs": {
     "url": "https://github.com/cerebral/cerebral-module-forms/issues"
   },
-  "homepage": "https://github.com/cerebral/cerebral-module-forms",
+  "standard": {
+	 "ignore": [
+  	   "/demo/"
+	 ]
+   },
   "scripts": {
-    "start": "node server"
+  	"lint": "standard"
   },
+  "homepage": "https://github.com/cerebral/cerebral-module-forms",
   "dependencies": {
     "cerebral-url-scheme-compiler": "^0.4.1",
     "classnames": "^2.2.3"
+  },
+  "devDependencies": {
+    "standard": "^6.0.8"
   }
 }
