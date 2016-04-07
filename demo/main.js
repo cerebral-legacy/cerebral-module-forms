@@ -21,6 +21,9 @@ import AsyncForm from './modules/Async/components/Form';
 import Checkout from './modules/Checkout';
 import CheckoutForm from './modules/Checkout/components/Form';
 
+import UploadSimple from './modules/UploadSimple';
+import UploadSimpleForm from './modules/UploadSimple/components/Form';
+
 const controller = Controller(Model({}));
 
 controller.addModules({
@@ -30,10 +33,21 @@ controller.addModules({
   list: List(),
   async: Async(),
   checkout: Checkout(),
-
+  uploadSimple: UploadSimple(),
   forms: Forms({
     rules: {
-      isMonth: (value) => value >= 1 && value <= 12
+      isMonth: (value) => {
+      	return value >= 1 && value <= 12;
+      },
+      extensions: (value,form,params) => {
+        let res = params.reduce((acc, ext) => {
+        	if( value[0].name.toLowerCase().endsWith( ext ) ){
+        		acc.push( ext );
+        	}
+        	return acc;
+        },[]);
+        return res.length > 0;
+      }
     }
   })
 });
@@ -68,6 +82,9 @@ ReactDOM.render((
     </div>
     <div style={ExampleStyle}>
       <CheckoutForm />
+    </div>
+    <div style={ExampleStyle}>
+      <UploadSimpleForm />
     </div>
   </Container>
 ), document.getElementById('root'));
