@@ -18,7 +18,8 @@ function PureCheckbox(props) {
     required: isRequired,
     error: isTouched && !isValid
   };
-
+  
+  otherProps.defaultValue = undefined;
   return (
     <div className={cx(containerClassName, containerClasses)}>
       <aside className='pure-form-message'>
