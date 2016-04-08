@@ -96,6 +96,26 @@ export default (options = {}) {
         validations: ['isEmail', 'minLength:3'],
         errorMessages: ['Not valid email', 'Too short email']
       },
+      email2: {
+        value: '',
+        isRequired: true,
+        validations: [{
+          isEmail: true
+        }],
+        errorMessages: ['Please enter a valid email address'],
+        dependents: [
+          ['..', 'email3'],
+          //['checkout', 'customer', 'email3'] this could point to another form.
+          //['.', '..', 'email3'] // Also works
+        ]
+      },
+      email3: {
+        value: '',
+        isRequired: true,
+        validations: ['equalsField:"email2"', 'isEmail'],
+        errorMessages: ['Please enter the same email address as above',
+                        'Please enter a valid email address']
+      },
       postalCode: {
         value: '',
         validations: [{
@@ -231,3 +251,7 @@ The **select** component expects its field to have an array of options like:
   }]
 }
 ```
+
+### Controlled Components
+Since Cerebral is handling all state we expect the input to be controlled. 
+See [https://facebook.github.io/react/docs/forms.html](https://facebook.github.io/react/docs/forms.html)
