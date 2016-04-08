@@ -18,12 +18,14 @@
     "url": "https://github.com/cerebral/cerebral-module-forms/issues"
   },
   "standard": {
-	 "ignore": [
-  	   "/demo/"
-	 ]
-   },
+    "ignore": [
+      "/demo/"
+    ]
+  },
   "scripts": {
-  	"lint": "standard"
+    "lint": "standard",
+    "test": "nodeunit tests",
+    "test:watch": "nodeunit-watcher tests"
   },
   "homepage": "https://github.com/cerebral/cerebral-module-forms",
   "dependencies": {
@@ -31,6 +33,8 @@
     "classnames": "^2.2.3"
   },
   "devDependencies": {
+    "nodeunit": "^0.9.1",
+    "nodeunit-watcher": "0.0.3",
     "standard": "^6.0.8"
   }
 }
