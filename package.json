@@ -1,7 +1,7 @@
 {
   "name": "cerebral-module-forms",
-  "version": "0.2.0",
   "description": "A forms handler for Cerebral",
+  "version": "0.0.0-semantically-released",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -25,7 +25,8 @@
   "scripts": {
     "lint": "standard",
     "test": "nodeunit tests",
-    "test:watch": "nodeunit-watcher tests"
+    "test:watch": "nodeunit-watcher tests",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "homepage": "https://github.com/cerebral/cerebral-module-forms",
   "dependencies": {
@@ -33,8 +34,28 @@
     "classnames": "^2.2.3"
   },
   "devDependencies": {
+    "commitizen": "^2.7.6",
+    "conventional-changelog": "0.0.17",
+    "cz-customizable": "^3.1.0",
+    "ghooks": "^1.2.0",
     "nodeunit": "^0.9.1",
     "nodeunit-watcher": "0.0.3",
-    "standard": "^6.0.8"
+    "semantic-release": "^4.3.5",
+    "standard": "^6.0.8",
+    "validate-commit-msg": "^2.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "node_modules/cz-customizable/cz-config-EXAMPLE.js"
+    },
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "release": {
+    "analyzeCommits": "./sr-prerelease.js"
   }
 }
