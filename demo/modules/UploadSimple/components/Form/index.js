@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import UploadService from '../../services/UploadService'
 import { Decorator as Cerebral } from 'cerebral-view-react';
 import isValidForm from 'cerebral-module-forms/helpers/isValidForm';
 import uploadController from 'upload-controller';
