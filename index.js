@@ -1,4 +1,5 @@
 var rules = require('./helpers/rules.js')
+var MODULE = 'cerebral-module-forms'
 
 module.exports = function (options) {
   options = options || {}
@@ -10,9 +11,7 @@ module.exports = function (options) {
   }
 
   return function (module, controller) {
-    module.alias('cerebral-module-forms')
-
-    module.addState({})
+    module.alias(MODULE)
 
     module.addSignals({
       fieldAdded: require('./signals/fieldAdded.js'),
