@@ -226,7 +226,7 @@ Forms has a few wrappers for the native form elements. You just point to the fie
 defined inside your state store.
 
 ```js
-import Form from 'cerebral-module-forms/react/Input';
+import Input from 'cerebral-module-forms/react/Input';
 import Checkbox from 'cerebral-module-forms/react/Checkbox';
 import Select from 'cerebral-module-forms/react/Select';
 
