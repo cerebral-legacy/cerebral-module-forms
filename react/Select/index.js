@@ -48,7 +48,8 @@ module.exports = React.createClass({
     props.onBlur = this.onBlur
     return React.createElement('select', props, this.state.options.map(function (option, index) {
       return React.createElement('option', {
-        key: index
+        key: index,
+        value: option.value
       }, option.text)
     }))
   }
