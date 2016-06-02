@@ -1,12 +1,13 @@
 var React = require('react')
 var CerebralReact = require('cerebral-view-react')
+var transformPathToArray = require('../../helpers/transformPathToArray')
 
 module.exports = React.createClass({
   mixins: [CerebralReact.Mixin],
   getStatePaths: function () {
     return {
-      value: this.props.field.concat('value'),
-      options: this.props.field.concat('options')
+      value: transformPathToArray(this.props.field).concat('value'),
+      options: transformPathToArray(this.props.field).concat('options')
     }
   },
   onChange: function (event) {

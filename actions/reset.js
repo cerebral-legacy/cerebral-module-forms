@@ -1,10 +1,11 @@
 var configureField = require('../helpers/configureField')
+var transformPathToArray = require('./../helpers/transformPathToArray.js')
 
 module.exports = function reset (arg) {
   var input = arg.input
   var state = arg.state
-
-  var path = input.formPath.slice()
+  var formPath = transformPathToArray(input.formPath)
+  var path = formPath.slice()
   var currentPathValue = state.get(path)
 
   var resetObject = function (form) {

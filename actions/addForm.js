@@ -1,9 +1,11 @@
 var Form = require('../Form.js')
+var transformPathToArray = require('./../helpers/transformPathToArray.js')
 
 function addForm (arg) {
   var input = arg.input
   var state = arg.state
-  var path = input.formPath.slice()
+  var pathToForm = transformPathToArray(input.formPath)
+  var path = pathToForm.slice()
   var currentPathValue = state.get(path)
 
   if (Array.isArray(currentPathValue)) {

@@ -5,18 +5,17 @@ import Input from 'cerebral-module-forms/react/Input';
 import Checkbox from 'cerebral-module-forms/react/Checkbox';
 
 @Cerebral({
-  form: ['contract']
+  form: 'contract'
 })
 class Form extends React.Component {
   render() {
     const {signals, form} = this.props;
     const isValid = isValidForm(form);
-
     return (
       <form>
         <div>
           <h4>Name (required)</h4>
-          <Input field={['contract', 'name']}/>
+          <Input field={'contract.name'}/>
         </div>
 
         <div>
@@ -28,7 +27,7 @@ class Form extends React.Component {
 
         <div>
           <h4>Agreed (require)</h4>
-          <Checkbox field={['contract', 'agreed']}/>
+          <Checkbox field={'contract.agreed'}/>
         </div>
 
         <br/><br/>
@@ -40,12 +39,12 @@ class Form extends React.Component {
 
         <button onClick={(e) => {
             e.preventDefault();
-            signals.forms.reset({ formPath: ['contract'] })
+            signals.forms.reset({ formPath: 'contract' })
         }}>Reset</button>
 
         <button onClick={(e) => {
             e.preventDefault();
-            signals.forms.formValidated({ formPath: ['contract'] })
+            signals.forms.formValidated({ formPath: 'contract' })
         }}>Validate</button>
 
       </form>

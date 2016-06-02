@@ -1,9 +1,11 @@
 var configureField = require('./../helpers/configureField.js')
+var transformPathToArray = require('./../helpers/transformPathToArray.js')
 
 function addField (arg) {
   var input = arg.input
   var state = arg.state
-  var path = input.fieldPath.slice()
+  var pathToField = transformPathToArray(input.fieldPath)
+  var path = pathToField.slice()
   var key = path.pop()
   var form = state.get(path)
 
