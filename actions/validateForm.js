@@ -1,11 +1,12 @@
 var isRequired = require('../helpers/isRequired.js')
 var validateHelper = require('../helpers/validate.js')
+var transformPathToArray = require('./../helpers/transformPathToArray.js')
 
 function validate (arg) {
   var input = arg.input
   var state = arg.state
-
-  var path = input.formPath.slice()
+  var formPath = transformPathToArray(input.formPath)
+  var path = formPath.slice()
   var currentPathValue = state.get(path)
 
   var validateForm = function (path, form) {

@@ -1,5 +1,6 @@
 var React = require('react')
 var CerebralReact = require('cerebral-view-react')
+var transformPathToArray = require('../../helpers/transformPathToArray')
 
 function parseValue (event) {
   if (event.target.multiple) {
@@ -23,7 +24,7 @@ module.exports = function (Component) {
     mixins: [CerebralReact.Mixin],
     getStatePaths: function () {
       return {
-        field: this.props.field
+        field: transformPathToArray(this.props.field)
       }
     },
     onChange: function (event) {

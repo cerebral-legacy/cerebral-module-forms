@@ -1,5 +1,6 @@
 var validateHelper = require('../helpers/validate.js')
 var joinPath = require('../helpers/joinPath.js')
+var transformPathToArray = require('./../helpers/transformPathToArray.js')
 
 function validate (arg) {
   var input = arg.input
@@ -14,7 +15,8 @@ function validate (arg) {
     })
   }
 
-  var path = input.field.slice()
+  var pathToField = transformPathToArray(input.field)
+  var path = pathToField.slice()
   var key = path.pop()
   var form = state.get(path)
   var field = form[key]
@@ -27,7 +29,7 @@ function validate (arg) {
         console.warn('cerebral-module-forms: dependent path expected to be Array. Check out dependents provided for ' + input.field + '.')
         return
       }
-      var path = joinPath(input.field, dependent)
+      var path = joinPath(pathToField, dependent)
       var key = path.pop()
       var form = state.get(path)
 

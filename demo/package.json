@@ -24,7 +24,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "baobab": "^2.3.3",
-    "cerebral": "^0.34.0-rc.4",
+    "cerebral": "^0.34.0",
     "cerebral-model-baobab": "^0.4.7",
     "cerebral-module-devtools": "^0.6.4",
     "cerebral-view-react": "^0.11.15",
@@ -43,7 +43,7 @@
     "rimraf": "^2.4.3",
     "stats-webpack-plugin": "^0.3.0",
     "style-loader": "^0.13.0",
-    "upload-controller": "^0.2.5",
+    "upload-controller": "^0.2.6",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.2.0"

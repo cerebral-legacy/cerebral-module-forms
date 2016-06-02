@@ -3,7 +3,7 @@ import { Decorator as Cerebral } from 'cerebral-view-react';
 import isValidForm from 'cerebral-module-forms/helpers/isValidForm';
 
 @Cerebral({
-  form: ['simple']
+  form: 'simple'
 })
 class Form extends React.Component {
   render() {
@@ -17,11 +17,11 @@ class Form extends React.Component {
           <input
             value={form.name.value}
             onChange={(e) => signals.forms.fieldChanged({
-              field: ['simple', 'name'],
+              field: 'simple.name',
               value: e.target.value
             })}
             onBlur={(e) => signals.forms.fieldChanged({
-              field: ['simple', 'name'],
+              field: 'simple.name',
               value: e.target.value,
               touched: true
             })}/>
@@ -32,11 +32,11 @@ class Form extends React.Component {
           <input
             value={form.email.value}
             onChange={(e) => signals.forms.fieldChanged({
-              field: ['simple', 'email'],
+              field: 'simple.email',
               value: e.target.value
             })}
             onBlur={(e) => signals.forms.fieldChanged({
-              field: ['simple', 'email'],
+              field: 'simple.email',
               value: e.target.value,
               touched: true
             })}/>
@@ -50,11 +50,11 @@ class Form extends React.Component {
             <input
               value={form.address.street.value}
               onChange={(e) => signals.forms.fieldChanged({
-                field: ['simple', 'address', 'street'],
+                field: 'simple.address.street',
                 value: e.target.value
               })}
               onBlur={(e) => signals.forms.fieldChanged({
-                field: ['simple', 'address', 'street'],
+                field: 'simple.address.street',
                 value: e.target.value,
                 touched: true
               })}/>
@@ -65,11 +65,11 @@ class Form extends React.Component {
             <input
               value={form.address.postalCode.value}
               onChange={(e) => signals.forms.fieldChanged({
-                field: ['simple', 'address', 'postalCode'],
+                field: 'simple.address.postalCode',
                 value: e.target.value
               })}
               onBlur={(e) => signals.forms.fieldChanged({
-                field: ['simple', 'address', 'postalCode'],
+                field: 'simple.address.postalCode',
                 value: e.target.value,
                 touched: true
               })}/>
@@ -86,12 +86,12 @@ class Form extends React.Component {
 
         <button onClick={(e) => {
             e.preventDefault();
-            signals.forms.reset({ formPath: ['simple'] })
+            signals.forms.reset({ formPath: 'simple' })
         }}>Reset</button>
 
         <button onClick={(e) => {
             e.preventDefault();
-            signals.forms.formValidated({ formPath: ['simple'] })
+            signals.forms.formValidated({ formPath: 'simple' })
         }}>Validate</button>
 
       </form>

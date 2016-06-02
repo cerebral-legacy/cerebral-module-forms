@@ -1,7 +1,9 @@
+var transformPathToArray = require('./../helpers/transformPathToArray.js')
+
 function removeForm (arg) {
   var input = arg.input
   var state = arg.state
-  var path = input.formPath.slice()
+  var path = transformPathToArray(input.formPath).slice()
   var currentPathValue = state.get(path)
   var key = path.pop()
 
