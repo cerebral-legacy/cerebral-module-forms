@@ -39,7 +39,7 @@ export default (options = {}) {
         }
       })
     });
-    
+
   };
 }
 ```
@@ -135,9 +135,35 @@ export default (options = {}) {
 #### Validation rules
 Check `helpers/rules.js`.
 
+Let's say you want to create your own rule for a field. A field input that shouldn't contain white space. You can use the
+matchRegexp in `helpers/rules.js` or create your own rule. We save the below as formRules.js
+
+```js
+export default {
+  noWhitespace: (value) => {
+    return value.indexOf(' ') === -1
+  }
+}
+```
+
+Add the rule to you forms rules.
+
+```js
+import {noWhitespace} from './formRules'
+
+controller.addModules({
+  forms: Forms({
+    rules: {
+      noWhitespace
+    }
+  })
+})
+```
+
+Now you can reference it in `validations` for your input.
 
 #### Defining when a value exists
-To figure out if your field actually has a value the Forms module uses a generic check for it. If its undefined, empty string, null or false it considerns the field as "not having a value".
+To figure out if your field actually has a value the Forms module uses a generic check for it. If its undefined, empty string, null or false it considers the field as "not having a value".
 If you want to override this, you can. For example you want to create a list of items where
 it is required to have three items.
 
@@ -173,7 +199,7 @@ import { Decorator as Cerebral } from 'cerebral-view-react';
 import isValidForm from 'cerebral-module-forms/helpers/isValidForm';
 
 @Cerebral({
-  form: ['someForm']
+  form: 'someForm'
 })
 class Form extends React.Component {
   render() {
@@ -187,7 +213,7 @@ class Form extends React.Component {
           <input
             value={form.name.value}
             onChange={(e) => signals.forms.fieldChanged({
-              field: ['someForm', 'name'],
+              field: 'someForm.name',
               value: e.target.value
             })}/>
         </div>
@@ -211,7 +237,7 @@ validation occuring, you can set:
 
 ```js
 signals.forms.fieldChanged({
-  field: ['someForm', 'name'],
+  field: 'someForm.name',
   value: e.target.value,
   preventValidation: true
 });
@@ -230,11 +256,11 @@ import Input from 'cerebral-module-forms/react/Input';
 import Checkbox from 'cerebral-module-forms/react/Checkbox';
 import Select from 'cerebral-module-forms/react/Select';
 
-<Input field={['path', 'to', 'field']}/>
+<Input field={'path.to.field'}/>
 
-<Checkbox field={['path', 'to', 'field']}/>
+<Checkbox field={'path.to.field'}/>
 
-<Select field={['path', 'to', 'field']}/>
+<Select field={'path.to.field'}/>
 ```
 
 The **select** component expects its field to have an array of options like:
@@ -253,5 +279,5 @@ The **select** component expects its field to have an array of options like:
 ```
 
 ### Controlled Components
-Since Cerebral is handling all state we expect the input to be controlled. 
+Since Cerebral is handling all state we expect the input to be controlled.
 See [https://facebook.github.io/react/docs/forms.html](https://facebook.github.io/react/docs/forms.html)
