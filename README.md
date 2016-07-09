@@ -192,20 +192,19 @@ generic how values are handled. No need to use default form elements, you can
 easily create your own and get the validation for free.
 
 ```js
-import React from 'react';
-import { Decorator as Cerebral } from 'cerebral-view-react';
+import React from 'react'
+import {connect} from 'cerebral-view-react'
 
 // A helper to check if the form is valid
-import isValidForm from 'cerebral-module-forms/helpers/isValidForm';
+import isValidForm from 'cerebral-module-forms/helpers/isValidForm'
 
-@Cerebral({
-  form: 'someForm'
-})
-class Form extends React.Component {
-  render() {
-    const {signals, form} = this.props;
+export default connect(
+  {
+    form: 'someForm'
+  },
+  function Form ({signals, form}) {
     const isValid = isValidForm(form);
-
+    
     return (
       <form>
         <div>
@@ -224,11 +223,9 @@ class Form extends React.Component {
         }}>Click to see JSON</button>
 
       </form>
-    );
+    )
   }
-}
-
-export default Form;
+)
 ```
 
 ### Custom validation (async)
