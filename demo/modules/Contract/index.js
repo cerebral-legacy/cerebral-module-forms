@@ -1,9 +1,8 @@
-import Form from 'cerebral-module-forms/Form';
-import formSubmitted from './signals/formSubmitted';
+import Form from 'cerebral-module-forms/Form'
+import formSubmitted from './chains/formSubmitted'
 
 export default (options = {}) => {
   return (module, controller) => {
-
     module.addState(Form({
       name: {
         value: '',
@@ -13,11 +12,10 @@ export default (options = {}) => {
         value: false,
         isRequired: true
       }
-    }));
+    }))
 
     module.addSignals({
       formSubmitted
-    });
-
-  };
+    })
+  }
 }
