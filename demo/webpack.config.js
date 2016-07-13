@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+var path = require('path')
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var autoprefixer = require('autoprefixer')
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -42,9 +42,9 @@ module.exports = {
       include: __dirname,
       loader: 'babel',
       query: {
-        "presets": ["react", "es2015", "stage-0"],
-        "plugins": [
-          ["transform-decorators-legacy"]
+        'presets': ['react', 'es2015', 'stage-0'],
+        'plugins': [
+          ['transform-decorators-legacy']
         ]
       }
     }, {
@@ -56,4 +56,4 @@ module.exports = {
     }]
   },
   postcss: [ autoprefixer ]
-};
+}

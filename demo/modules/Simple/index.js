@@ -1,5 +1,5 @@
 import Form from 'cerebral-module-forms/Form'
-import formSubmitted from './signals/formSubmitted'
+import formSubmitted from './chains/formSubmitted'
 
 export default (options = {}) => {
   return (module, controller) => {

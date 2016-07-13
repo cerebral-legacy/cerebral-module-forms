@@ -17,11 +17,6 @@
   "bugs": {
     "url": "https://github.com/cerebral/cerebral-module-forms/issues"
   },
-  "standard": {
-    "ignore": [
-      "/demo/"
-    ]
-  },
   "scripts": {
     "lint": "standard",
     "test": "nodeunit tests",
@@ -45,7 +40,7 @@
     "validate-commit-msg": "^2.5.0"
   },
   "peerDependencies": {
-    "cerebral": "^0.33.31 || ^0.34.0-0"
+    "cerebral": "^0.33.31 || ^0.34.0-0 || ^0.35.0-0"
   },
   "config": {
     "commitizen": {

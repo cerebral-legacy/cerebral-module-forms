@@ -230,7 +230,7 @@ export default connect(
 
 ### Custom validation (async)
 You have complete control of the state inside the state store, so you can basically build whatever you want. To prevent any
-validation occuring, you can set:
+validation occurring, you can set:
 
 ```js
 signals.forms.fieldChanged({
@@ -241,39 +241,7 @@ signals.forms.fieldChanged({
 ```
 
 This will synchronize that value, but not do any validation. Then you are free to create some application specific signal that
-will do whatever it needs and just update the `['someForm', 'name']` properties to whatever you want. Changing its validation state,
-change some properties etc. Does not matter.
-
-### Wrappers
-Forms has a few wrappers for the native form elements. You just point to the field it should synchronize with, and everything else is
-defined inside your state store.
-
-```js
-import Input from 'cerebral-module-forms/react/Input';
-import Checkbox from 'cerebral-module-forms/react/Checkbox';
-import Select from 'cerebral-module-forms/react/Select';
-
-<Input field={'path.to.field'}/>
-
-<Checkbox field={'path.to.field'}/>
-
-<Select field={'path.to.field'}/>
-```
-
-The **select** component expects its field to have an array of options like:
-
-```js
-{
-  value: 10,
-  options: [{
-    value: 10,
-    text: 'Age 10'
-  }, {
-    value: 20,
-    text: 'Age 20'
-  }]
-}
-```
+will do whatever it needs and just update the `'someForm.name'` properties to whatever you want. Changing its validation state, change some properties etc. Does not matter.
 
 ### Controlled Components
 Since Cerebral is handling all state we expect the input to be controlled.
