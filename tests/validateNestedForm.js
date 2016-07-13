@@ -43,7 +43,6 @@ module.exports = {
   },
   testValidateNestedForm: function (test) {
     var fields = getInvalidFieldsHelper(this.form)
-    console.log(fields)
     test.equal(fields.length, 3)
     test.equal(fields[0].path, 'form1.name')
     test.equal(fields[1].path, 'form1.address.zipcode')
