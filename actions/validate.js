@@ -41,17 +41,25 @@ function validate (arg) {
   if (Array.isArray(field.dependsOn)) {
     field.dependsOn.forEach(function (stringPath) {
       var path = stringPath.split('.')
-      var key = path.pop()
+      var dependsOnKey = path.pop()
       var form = state.get(path)
 
-      doValidation(path, form, key)
+      if (!form) {
+        throw new Error('The path "' + path.join('.')  + '" used with "dependsOn" on field "' + key + '" is not correct, please check it')
+      }
+
+      doValidation(path, form, dependsOnKey)
     })
   } else if (field.dependsOn) {
     var path = field.dependsOn.split('.')
-    var key = path.pop()
+    var dependsOnKey = path.pop()
     var form = state.get(path)
 
-    doValidation(path, form, key)
+    if (!form) {
+      throw new Error('The path "' + path.join('.')  + '" used with "dependsOn" on field "' + key + '" is not correct, please check it')
+    }
+
+    doValidation(path, form, dependsOnKey)
   }
 }
 
