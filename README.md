@@ -103,16 +103,17 @@ export default (options = {}) {
           isEmail: true
         }],
         errorMessages: ['Please enter a valid email address'],
-        dependents: [
-          ['..', 'email3'],
-          //['checkout', 'customer', 'email3'] this could point to another form.
-          //['.', '..', 'email3'] // Also works
-        ]
+        // Revalidate this field when email3 changes.
+        // Use full path to field, allows nested and cross form
+        // dependencies
+        dependsOn: 'app.myForm.email3',
+        // Multiple dependsOn
+        dependsOn: ['app.myForm.email3', 'app.someOtherForm.email4']
       },
       email3: {
         value: '',
         isRequired: true,
-        validations: ['equalsField:"email2"', 'isEmail'],
+        validations: ['equalsField:email2', 'isEmail'],
         errorMessages: ['Please enter the same email address as above',
                         'Please enter a valid email address']
       },
@@ -204,7 +205,7 @@ export default connect(
   },
   function Form ({signals, form}) {
     const isValid = isValidForm(form);
-    
+
     return (
       <form>
         <div>

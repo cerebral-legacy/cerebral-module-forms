@@ -24,6 +24,7 @@ function validate (arg) {
   doValidation(path, form, key)
 
   if (Array.isArray(field.dependents) && field.dependents.length) {
+    console.warn('DEPRECATED: Use new field.dependsOn API instead');
     field.dependents.forEach(function (dependent) {
       if (!Array.isArray(dependent) || !dependent.length) {
         console.warn('cerebral-module-forms: dependent path expected to be Array. Check out dependents provided for ' + input.field + '.')
@@ -35,6 +36,22 @@ function validate (arg) {
 
       doValidation(path, form, key)
     })
+  }
+
+  if (Array.isArray(field.dependsOn)) {
+    field.dependsOn.forEach(function (stringPath) {
+      var path = stringPath.split('.')
+      var key = path.pop()
+      var form = state.get(path)
+
+      doValidation(path, form, key)
+    })
+  } else if (field.dependsOn) {
+    var path = field.dependsOn.split('.')
+    var key = path.pop()
+    var form = state.get(path)
+
+    doValidation(path, form, key)
   }
 }
 

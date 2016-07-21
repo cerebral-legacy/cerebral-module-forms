@@ -44,6 +44,39 @@ class Form extends React.Component {
         </div>
 
         <div>
+          <h4>Password (required)</h4>
+          <input
+            value={form.email.password}
+            onChange={(e) => signals.forms.fieldChanged({
+              field: 'simple.password',
+              value: e.target.value
+            })}
+            onBlur={(e) => signals.forms.fieldChanged({
+              field: 'simple.password',
+              value: e.target.value,
+              touched: true
+            })}/>
+          {form.email.isTouched ? form.password.errorMessage : null}
+        </div>
+
+        <div>
+          <h4>Repeat password (required)</h4>
+          <input
+            type="password"
+            value={form.email.repeatPassword}
+            onChange={(e) => signals.forms.fieldChanged({
+              field: 'simple.repeatPassword',
+              value: e.target.value
+            })}
+            onBlur={(e) => signals.forms.fieldChanged({
+              field: 'simple.repeatPassword',
+              value: e.target.value,
+              touched: true
+            })}/>
+          {form.email.isTouched ? form.repeatPassword.errorMessage : null}
+        </div>
+
+        <div>
           <h4>Address</h4>
           <div>
             <h5>Street</h5>

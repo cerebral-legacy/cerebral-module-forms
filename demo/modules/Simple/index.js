@@ -14,6 +14,20 @@ export default (options = {}) => {
         errorMessages: ['Not valid email'],
         isRequired: true
       },
+      password: {
+        value: '',
+        validations: ['equalsField:repeatPassword'],
+        dependsOn: 'simple.repeatPassword',
+        errorMessages: ['Not equal to repeated password'],
+        isRequired: true
+      },
+      repeatPassword: {
+        value: '',
+        validations: ['equalsField:password'],
+        dependsOn: 'simple.password',
+        errorMessages: ['Not equal to password'],
+        isRequired: true
+      },
       address: Form({
         street: {
           value: ''
