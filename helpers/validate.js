@@ -21,7 +21,15 @@ module.exports = function (form, value, validations) {
         var args = validation.split(/:(.+)?/)
 
         validation = {}
-        validation[args[0]] = args[1] ? JSON.parse(args[1]) : undefined
+        if (args[1]) {
+          try {
+            validation[args[0]] = JSON.parse(args[1])
+          } catch (e) {
+            validation[args[0]] = args[1]
+          }
+        } else {
+          validation[args[0]] = undefined
+        }
       }
 
       return {
