@@ -1,6 +1,7 @@
-var traverseAndCollectInvalidFields = require('./traverseAndCollectInvalidFields')
-var getFieldIfNotValidValidator = require('./getFieldIfNotValidValidator')
+var getFormFields = require('./getFormFields')
 
 module.exports = function getInvalidFields (form) {
-  return traverseAndCollectInvalidFields(form, getFieldIfNotValidValidator)
+  return getFormFields(form).filter(function (formField) {
+    return !formField.field.isValid
+  })
 }

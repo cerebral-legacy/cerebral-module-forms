@@ -9,19 +9,11 @@ import Forms from 'cerebral-module-forms'
 import Simple from './modules/Simple'
 import SimpleForm from './components/Simple/Form'
 
-import Async from './modules/Async'
-import AsyncForm from './components/Async/Form'
-
-import UploadSimple from './modules/UploadSimple'
-import UploadSimpleForm from './components/UploadSimple/Form'
-
 const controller = Controller(Model({}))
 
 controller.addModules({
   devtools: Devtools(),
   simple: Simple(),
-  async: Async(),
-  uploadSimple: UploadSimple(),
   forms: Forms({
     rules: {
       isMonth: (value) => {
@@ -56,13 +48,6 @@ ReactDOM.render(
       <div style={ExampleStyle}>
         <h1>Simple Form (Low level code)</h1>
         <SimpleForm/>
-      </div>
-      <div style={ExampleStyle}>
-        <h1>Username Form (Custom Async)</h1>
-        <AsyncForm/>
-      </div>
-      <div style={ExampleStyle}>
-        <UploadSimpleForm />
       </div>
     </div>
   </Container>

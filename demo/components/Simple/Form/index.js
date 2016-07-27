@@ -28,7 +28,7 @@ class Form extends React.Component {
         </div>
 
         <div>
-          <h4>Email (required)</h4>
+          <h4>Email (required and validate on blur)</h4>
           <input
             value={form.email.value}
             onChange={(e) => signals.forms.fieldChanged({
@@ -119,12 +119,12 @@ class Form extends React.Component {
 
         <button onClick={(e) => {
           e.preventDefault()
-          signals.forms.reset({ formPath: 'simple' })
+          signals.simple.resetClicked()
         }}>Reset</button>
 
         <button onClick={(e) => {
           e.preventDefault()
-          signals.forms.formValidated({ formPath: 'simple' })
+          signals.simple.validateFormClicked()
         }}>Validate</button>
 
       </form>

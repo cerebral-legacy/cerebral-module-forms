@@ -24,10 +24,6 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "homepage": "https://github.com/cerebral/cerebral-module-forms",
-  "dependencies": {
-    "cerebral-url-scheme-compiler": "^0.4.1",
-    "classnames": "^2.2.3"
-  },
   "devDependencies": {
     "commitizen": "^2.7.6",
     "conventional-changelog": "0.0.17",
