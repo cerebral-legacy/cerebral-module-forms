@@ -1,4 +1,4 @@
-var getInvalidFieldsHelper = require('../helpers/getInvalidFields')
+var getInvalidFieldsHelper = require('../helpers/getInvalidFormFields')
 
 module.exports = {
   setUp: function (callback) {
