@@ -1,7 +1,14 @@
 var getFormFields = require('./getFormFields')
 
 module.exports = function getInvalidFields (form) {
-  return getFormFields(form).filter(function (formField) {
-    return !formField.field.isValid
-  })
+  var formFields = getFormFields(form)
+
+  return Object.keys(formFields)
+    .filter(function (key) {
+      return !formFields[key].isValid
+    })
+    .reduce(function (invalidFields, key) {
+      invalidFields[key] = formFields[key]
+      return invalidFields
+    }, {})
 }

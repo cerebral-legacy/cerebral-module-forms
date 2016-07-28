@@ -1,28 +1,26 @@
-var traverseForm = function (object, currentPath) {
+var traverseForm = function (object, currentPath, allFields) {
   currentPath = currentPath || []
+  allFields = allFields || {}
+
   return Object.keys(object).reduce(function (allFields, key) {
     currentPath.push(key)
     if (Array.isArray(object[key])) {
-      var result = allFields.concat(object[key].reduce(function (allFormItems, formItem, index) {
+      object[key].forEach(function (formItem, index) {
         currentPath.push(index)
-        var result = allFormItems.concat(traverseForm(object[key][index], currentPath))
+        traverseForm(object[key][index], currentPath, allFields)
         currentPath.pop();
-        return result
-      }, []))
-      currentPath.pop()
-      return result
-    } else if ('value' in object[key]) {
-      var result = allFields.concat({
-        path: currentPath.join('.'),
-        field: object[key]
       })
       currentPath.pop()
-      return result
+      return allFields
+    } else if ('value' in object[key]) {
+      allFields[currentPath.join('.')] = object[key]
+      currentPath.pop()
+      return allFields
     }
-    var result = allFields.concat(traverseForm(object[key], currentPath))
+    traverseForm(object[key], currentPath, allFields)
     currentPath.pop()
-    return result
-  }, [])
+    return allFields
+  }, allFields)
 }
 
 module.exports = traverseForm
