@@ -19,7 +19,7 @@ function configureField (formData, field) {
   field.value = value
   field.defaultValue = defaultValue
   field.validations = validations
-  field.isValid = (isRequired || hasValue) ? validationResult.isValid : true
+  field.isValid = ((isRequired && hasValue && validationResult.isValid) || (!isRequired && validationResult.isValid))
   field.errorMessages = errorMessages
   field.errorMessage = validationResult.isValid ? null : errorMessages[validationResult.failedRule]
   field.isValue = isValue

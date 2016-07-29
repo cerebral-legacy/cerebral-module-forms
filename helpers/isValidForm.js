@@ -1,6 +1,11 @@
-var traverseForm = require('./traverseForm')
-var validFormValidator = require('./validFormValidator')
+var getFormFields = require('./getFormFields')
 
 module.exports = function isValidForm (form) {
-  return traverseForm(form, validFormValidator)
+  return getFormFields(form).reduce(function (isValid, formField) {
+    if (!isValid) {
+      return false
+    }
+
+    return formField.field.isValid
+  }, true)
 }

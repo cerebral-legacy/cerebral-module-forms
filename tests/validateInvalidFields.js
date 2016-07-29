@@ -1,4 +1,4 @@
-var getInvalidFieldsHelper = require('../helpers/getInvalidFields')
+var getInvalidFieldsHelper = require('../helpers/getInvalidFormFields')
 
 module.exports = {
   setUp: function (callback) {
@@ -24,8 +24,8 @@ module.exports = {
   },
   testValidateInvalidFields: function (test) {
     var fields = getInvalidFieldsHelper(this.form)
-    test.equal(fields.length, 1)
-    test.equal(fields[0].path, 'name')
+    test.equal(Object.keys(fields).length, 1)
+    test.ok(fields.name)
     test.done()
   }
 }

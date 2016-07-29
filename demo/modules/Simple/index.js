@@ -1,5 +1,7 @@
 import Form from 'cerebral-module-forms/Form'
-import formSubmitted from './chains/formSubmitted'
+import submitForm from './chains/submitForm'
+import resetForm from './chains/resetForm'
+import validateForm from './chains/validateForm'
 
 export default (options = {}) => {
   return (module, controller) => {
@@ -41,7 +43,9 @@ export default (options = {}) => {
     }))
 
     module.addSignals({
-      formSubmitted
+      formSubmitted: submitForm,
+      resetClicked: resetForm,
+      validateFormClicked: validateForm
     })
   }
 }

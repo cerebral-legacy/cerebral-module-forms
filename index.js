@@ -1,4 +1,4 @@
-var rules = require('./helpers/rules.js')
+var rules = require('./utils/rules.js')
 var MODULE = 'cerebral-module-forms'
 
 module.exports = function (options) {
@@ -14,13 +14,7 @@ module.exports = function (options) {
     module.alias(MODULE)
 
     module.addSignals({
-      fieldAdded: require('./chains/fieldAdded.js'),
-      fieldRemoved: require('./chains/fieldRemoved.js'),
-      fieldChanged: {chain: require('./chains/fieldChanged.js'), immediate: true},
-      formAdded: require('./chains/formAdded.js'),
-      formRemoved: require('./chains/formRemoved.js'),
-      formValidated: require('./chains/formValidated.js'),
-      reset: require('./chains/reset.js')
+      fieldChanged: {chain: require('./chains/changeField.js'), immediate: true}
     })
   }
 }

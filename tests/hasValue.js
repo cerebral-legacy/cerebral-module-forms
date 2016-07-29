@@ -1,4 +1,4 @@
-var hasValueHelper = require('../helpers/hasValue')
+var hasValueHelper = require('../utils/hasValue')
 var Form = require('../Form')
 
 module.exports = {

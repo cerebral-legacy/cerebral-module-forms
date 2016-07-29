@@ -1,4 +1,4 @@
-var getInvalidFieldsHelper = require('../helpers/getInvalidFields')
+var getInvalidFieldsHelper = require('../helpers/getInvalidFormFields')
 
 module.exports = {
   setUp: function (callback) {
@@ -43,10 +43,10 @@ module.exports = {
   },
   testValidateNestedForm: function (test) {
     var fields = getInvalidFieldsHelper(this.form)
-    test.equal(fields.length, 3)
-    test.equal(fields[0].path, 'form1.name')
-    test.equal(fields[1].path, 'form1.address.zipcode')
-    test.equal(fields[2].path, 'form1.items.0.test')
+    test.equal(Object.keys(fields).length, 3)
+    test.ok(fields['form1.name'])
+    test.ok(fields['form1.address.zipcode'])
+    test.ok(fields['form1.items.0.test'])
     test.done()
   }
 }
