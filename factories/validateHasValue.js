@@ -13,7 +13,7 @@ function validateHasValue(fieldPath) {
 
     state.set(pathToField.concat('hasValue'), hasValueHelper(form, field.value, field.isValue))
   }
-  action.display = 'validateHasValue'
+  action.displayName = 'validateHasValue'
 
   return action
 }
