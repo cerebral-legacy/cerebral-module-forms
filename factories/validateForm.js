@@ -1,4 +1,3 @@
-var isRequired = require('../utils/isRequired.js')
 var validateHelper = require('../utils/validate.js')
 var transformPathToArray = require('./../utils/transformPathToArray.js')
 
@@ -31,7 +30,7 @@ function validateForm (formPath) {
     var doValidation = function (path, form, key) {
       var field = form[key]
       var result = validateHelper(form, field.value, field.validations)
-      var isValid = result.isValid && !isRequired(field)
+      var isValid = result.isValid && !(field.isRequired && !field.hasValue)
 
       state.merge(path, {
         isValid: isValid,
