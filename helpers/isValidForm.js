@@ -1,11 +1,12 @@
 var getFormFields = require('./getFormFields')
 
 module.exports = function isValidForm (form) {
-  return getFormFields(form).reduce(function (isValid, formField) {
+  var formFields = getFormFields(form)
+  return Object.keys(formFields).reduce(function (isValid, formFieldKey) {
     if (!isValid) {
       return false
     }
 
-    return formField.field.isValid
+    return formFields[formFieldKey].isValid
   }, true)
 }

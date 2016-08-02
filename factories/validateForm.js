@@ -1,11 +1,12 @@
 var validateHelper = require('../utils/validate.js')
+var hasValueHelper = require('../utils/hasValue.js')
 var transformPathToArray = require('./../utils/transformPathToArray.js')
 
-function validateForm (formPath) {
+function validateForm (passedFormPath) {
   function action (context) {
     var input = context.input
     var state = context.state
-    var formPath = transformPathToArray(formPath || input.formPath)
+    var formPath = transformPathToArray(passedFormPath || input.formPath)
     var path = formPath.slice()
     var currentPathValue = state.get(path)
 
@@ -29,11 +30,16 @@ function validateForm (formPath) {
 
     var doValidation = function (path, form, key) {
       var field = form[key]
+      var hasValue = hasValueHelper(form, field.value, field.isValue)
       var result = validateHelper(form, field.value, field.validations)
-      var isValid = result.isValid && !(field.isRequired && !field.hasValue)
+      var isValid = result.isValid && (
+        (field.isRequired && hasValue) ||
+        !field.isRequired
+      )
 
       state.merge(path, {
         isValid: isValid,
+        hasValue: hasValue,
         errorMessage: isValid ? null : field.errorMessages[result.failedRuleIndex],
         isTouched: true
       })

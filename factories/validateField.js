@@ -1,4 +1,5 @@
 var validateHelper = require('../utils/validate.js')
+var hasValueHelper = require('../utils/hasValue.js')
 var joinPath = require('../utils/joinPath.js')
 var transformPathToArray = require('./../utils/transformPathToArray.js')
 
@@ -9,9 +10,15 @@ function validateField (fieldPath) {
 
     var doValidation = function (path, form, key) {
       var field = form[key]
+      var hasValue = hasValueHelper(form, field.value, field.isValue)
       var result = validateHelper(form, field.value, field.validations)
+      var isValid = result.isValid && (
+        (field.isRequired && hasValue) ||
+        !field.isRequired
+      )
+
       state.merge(path.concat(key), {
-        isValid: result.isValid,
+        isValid: isValid,
         errorMessage: result.isValid ? null : field.errorMessages[result.failedRuleIndex]
       })
     }
