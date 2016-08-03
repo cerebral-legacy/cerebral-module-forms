@@ -62,7 +62,7 @@ class Form extends React.Component {
         <div>
           <h4>Repeat password (required)</h4>
           <input
-            type="password"
+            type={'password'}
             value={form.email.repeatPassword}
             onChange={(e) => signals.forms.fieldChanged({
               field: 'simple.repeatPassword',
