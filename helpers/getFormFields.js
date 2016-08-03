@@ -8,7 +8,7 @@ var traverseForm = function (object, currentPath, allFields) {
       object[key].forEach(function (formItem, index) {
         currentPath.push(index)
         traverseForm(object[key][index], currentPath, allFields)
-        currentPath.pop();
+        currentPath.pop()
       })
       currentPath.pop()
       return allFields
