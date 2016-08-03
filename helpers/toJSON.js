@@ -3,9 +3,9 @@ function toJSON (form) {
     return Object.keys(object).reduce(function (newObject, key) {
       if (Array.isArray(object[key])) {
         newObject[key] = extractArray(object[key])
-      } else if ('value' in object[key]) {
+      } else if (object[key] && 'value' in object[key]) {
         newObject[key] = object[key].value
-      } else {
+      } else if (object[key] && typeof object[key] === 'object') {
         newObject[key] = extractObject(object[key])
       }
       return newObject
