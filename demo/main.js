@@ -14,22 +14,7 @@ const controller = Controller(Model({}))
 controller.addModules({
   devtools: Devtools(),
   simple: Simple(),
-  forms: Forms({
-    rules: {
-      isMonth: (value) => {
-        return value >= 1 && value <= 12
-      },
-      extensions: (value, form, params) => {
-        let res = params.reduce((acc, ext) => {
-          if (value[0].name.toLowerCase().endsWith(ext)) {
-            acc.push(ext)
-          }
-          return acc
-        }, [])
-        return res.length > 0
-      }
-    }
-  })
+  forms: Forms()
 })
 
 const ExampleStyle = {
@@ -46,7 +31,7 @@ ReactDOM.render(
   <Container controller={controller}>
     <div>
       <div style={ExampleStyle}>
-        <h1>Simple Form (Low level code)</h1>
+        <h1>Simple Form</h1>
         <SimpleForm/>
       </div>
     </div>
