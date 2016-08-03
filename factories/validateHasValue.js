@@ -1,7 +1,7 @@
 var hasValueHelper = require('../utils/hasValue.js')
 var transformPathToArray = require('./../utils/transformPathToArray.js')
 
-function validateHasValue(fieldPath) {
+function validateHasValue (fieldPath) {
   function action (context) {
     var input = context.input
     var state = context.state

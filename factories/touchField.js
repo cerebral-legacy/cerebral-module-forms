@@ -14,5 +14,4 @@ function touchField (fieldPath, isTouched) {
   return action
 }
 
-
 module.exports = touchField

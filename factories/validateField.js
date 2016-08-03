@@ -1,6 +1,5 @@
 var validateHelper = require('../utils/validate.js')
 var hasValueHelper = require('../utils/hasValue.js')
-var joinPath = require('../utils/joinPath.js')
 var transformPathToArray = require('./../utils/transformPathToArray.js')
 
 function validateField (fieldPath) {
@@ -38,18 +37,18 @@ function validateField (fieldPath) {
         var form = state.get(path)
 
         if (!form) {
-          throw new Error('The path "' + path.join('.')  + '" used with "dependsOn" on field "' + key + '" is not correct, please check it')
+          throw new Error('The path "' + path.join('.') + '" used with "dependsOn" on field "' + key + '" is not correct, please check it')
         }
 
         doValidation(path, form, dependsOnKey)
       })
     } else if (field.dependsOn) {
-      var path = field.dependsOn.split('.')
+      path = field.dependsOn.split('.')
       var dependsOnKey = path.pop()
-      var form = state.get(path)
+      form = state.get(path)
 
       if (!form) {
-        throw new Error('The path "' + path.join('.')  + '" used with "dependsOn" on field "' + key + '" is not correct, please check it')
+        throw new Error('The path "' + path.join('.') + '" used with "dependsOn" on field "' + key + '" is not correct, please check it')
       }
 
       doValidation(path, form, dependsOnKey)
