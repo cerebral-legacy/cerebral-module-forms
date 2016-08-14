@@ -36,7 +36,7 @@
     "validate-commit-msg": "^2.5.0"
   },
   "peerDependencies": {
-    "cerebral": "^0.33.31 || ^0.34.0-0 || ^0.35.0-0"
+    "cerebral": "^0.33.31 || ^0.34.0-0 || ^0.35.0-0 || ^1.0.0"
   },
   "config": {
     "commitizen": {
