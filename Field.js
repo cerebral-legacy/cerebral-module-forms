@@ -1,5 +1,5 @@
 var configureField = require('./utils/configureField.js')
 
-module.exports = function (formData, fieldData) {
-  return configureField(formData, fieldData)
+module.exports = function (fieldData) {
+  return configureField({}, fieldData)
 }
