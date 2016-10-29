@@ -8,13 +8,13 @@
   "author": "Christian Alfoni",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cerebral/cerebral-module-forms/issues"
+    "url": "https://github.com/cerebral-legacy/cerebral-module-forms/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cerebral/cerebral-module-forms.git"
+    "url": "https://github.com/cerebral-legacy/cerebral-module-forms.git"
   },
-  "homepage": "https://github.com/cerebral/cerebral-module-forms",
+  "homepage": "https://github.com/cerebral-legacy/cerebral-module-forms",
   "devDependencies": {
     "autoprefixer": "^6.3.2",
     "babel-core": "^6.5.2",

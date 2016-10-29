@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cerebral/cerebral-module-forms.git"
+    "url": "https://github.com/cerebral-legacy/cerebral-module-forms.git"
   },
   "keywords": [
     "cerebral",
@@ -15,7 +15,7 @@
   "author": "Christian Alfoni",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cerebral/cerebral-module-forms/issues"
+    "url": "https://github.com/cerebral-legacy/cerebral-module-forms/issues"
   },
   "scripts": {
     "lint": "standard",
@@ -23,7 +23,7 @@
     "test:watch": "nodeunit-watcher tests",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "homepage": "https://github.com/cerebral/cerebral-module-forms",
+  "homepage": "https://github.com/cerebral-legacy/cerebral-module-forms",
   "devDependencies": {
     "commitizen": "^2.7.6",
     "conventional-changelog": "0.0.17",
