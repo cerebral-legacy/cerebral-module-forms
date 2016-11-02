@@ -1,5 +1,7 @@
 # cerebral-module-forms
-Form module for Cerebral
+Form module for Cerebral 1.x
+
+For Cerebral 2 you can use [cerebral-forms](https://github.com/cerebral/cerebral/tree/master/packages/cerebral-forms#readme).
 
 ### How to use
 Go to [http://www.cerebraljs.com/documentation/cerebral-module-forms](http://www.cerebraljs.com/documentation/cerebral-module-forms)
