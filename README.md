@@ -1,7 +1,7 @@
 # cerebral-module-forms
 Form module for Cerebral 1.x
 
-For Cerebral 2 you can use [@cerebral/forms](https://github.com/cerebral/cerebral/tree/master/packages/forms#readme).
+For Cerebral 2 you can use [@cerebral/forms](https://github.com/cerebral/cerebral/blob/master/packages/node_modules/%40cerebral/forms#readme).
 
 ### How to use
 Go to [http://cerebral-website.herokuapp.com/documentation/cerebral-module-forms](http://cerebral-website.herokuapp.com/documentation/cerebral-module-forms)
